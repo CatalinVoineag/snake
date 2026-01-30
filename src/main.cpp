@@ -10,6 +10,12 @@ int main(int, char**) {
     "Hello Window", 800, 300, 0
   )};
 
+  SDL_Renderer* Renderer = SDL_CreateRenderer(Window, NULL);
+
+  SDL_SetRenderDrawColor(Renderer, 30, 30, 60, 255);
+  SDL_RenderClear(Renderer);
+  SDL_RenderPresent(Renderer);
+
   bool IsRunning = true;
   SDL_Event Event;
   while (IsRunning) {
@@ -20,6 +26,7 @@ int main(int, char**) {
     }
   }
 
+  SDL_DestroyRenderer(Renderer);
   SDL_DestroyWindow(Window);
   SDL_Quit();
 
