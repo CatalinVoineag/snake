@@ -22,7 +22,10 @@ set(
   "${CMAKE_BINARY_DIR}/$<CONFIGURATION>"
 )
 
-add_executable(Snake src/main.cpp)
+add_executable(
+  Snake
+  src/main.cpp
+)
 
 set_target_properties(
   Snake PROPERTIES

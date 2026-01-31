@@ -8,6 +8,10 @@ int main(int, char**) {
   Window GameWindow;
   UI UIManager;
 
+  Uint32 OPEN_SETTINGS{SDL_RegisterEvents(1)};
+  SDL_Event MyEvent{ .type = OPEN_SETTINGS };
+  SDL_PushEvent(&MyEvent);
+
   bool IsRunning = true;
   SDL_Event Event;
   while (IsRunning) {
@@ -15,6 +19,8 @@ int main(int, char**) {
       UIManager.HandleEvent(Event);
       if (Event.type == SDL_EVENT_QUIT) {
         IsRunning = false;
+      } else if (Event.type == OPEN_SETTINGS) {
+        std::cout << "Open settings\n";
       }
     }
 
