@@ -1,12 +1,23 @@
 #pragma once
 #include <SDL3/SDL.h>
+#include <SDL3_image/SDL_image.h>
 
 class Window {
 public:
   Window() {
     SDLWindow = SDL_CreateWindow(
       "Hello Window",
-      700, 300, 0
+      1200, 800, 0
+    );
+  }
+
+  int GetWidth() {
+    return 800;
+  }
+
+  void TakeScreenshot() const {
+    IMG_SaveJPG(
+      GetSurface(), "Screenshot.jpg", 90
     );
   }
 
